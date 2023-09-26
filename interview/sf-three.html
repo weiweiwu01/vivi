@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>二分查找 | wuweiwei&#39;s blog</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="shortcut icon" type="image/x-icon" href="/icons/favicon.ico">
+    <meta name="description" content="my blog">
+    
+    <link rel="preload" href="/assets/css/0.styles.d7d76935.css" as="style"><link rel="preload" href="/assets/js/app.c4dac388.js" as="script"><link rel="preload" href="/assets/js/2.09318f72.js" as="script"><link rel="preload" href="/assets/js/1.74a6607f.js" as="script"><link rel="preload" href="/assets/js/37.b5224c6d.js" as="script"><link rel="prefetch" href="/assets/js/10.0dc02462.js"><link rel="prefetch" href="/assets/js/11.d1a2e0de.js"><link rel="prefetch" href="/assets/js/12.8e6a9223.js"><link rel="prefetch" href="/assets/js/13.5c19bef7.js"><link rel="prefetch" href="/assets/js/14.be26bb9e.js"><link rel="prefetch" href="/assets/js/15.1c748501.js"><link rel="prefetch" href="/assets/js/16.1647f983.js"><link rel="prefetch" href="/assets/js/17.e45ca0bc.js"><link rel="prefetch" href="/assets/js/18.d8cc6813.js"><link rel="prefetch" href="/assets/js/19.87c530ee.js"><link rel="prefetch" href="/assets/js/20.0bb77f37.js"><link rel="prefetch" href="/assets/js/21.3bc03127.js"><link rel="prefetch" href="/assets/js/22.518a7ac6.js"><link rel="prefetch" href="/assets/js/23.96dc2daa.js"><link rel="prefetch" href="/assets/js/24.22479645.js"><link rel="prefetch" href="/assets/js/25.0e19e5d3.js"><link rel="prefetch" href="/assets/js/26.0a244551.js"><link rel="prefetch" href="/assets/js/27.3a48b29e.js"><link rel="prefetch" href="/assets/js/28.94490676.js"><link rel="prefetch" href="/assets/js/29.82399b77.js"><link rel="prefetch" href="/assets/js/3.fc87af7b.js"><link rel="prefetch" href="/assets/js/30.eee50a39.js"><link rel="prefetch" href="/assets/js/31.c4ce64eb.js"><link rel="prefetch" href="/assets/js/32.14c69f15.js"><link rel="prefetch" href="/assets/js/33.10dab278.js"><link rel="prefetch" href="/assets/js/34.b5f97635.js"><link rel="prefetch" href="/assets/js/35.605e3e41.js"><link rel="prefetch" href="/assets/js/36.0ba63983.js"><link rel="prefetch" href="/assets/js/38.394ec364.js"><link rel="prefetch" href="/assets/js/39.c0c70db5.js"><link rel="prefetch" href="/assets/js/4.d17a8336.js"><link rel="prefetch" href="/assets/js/40.a88913ac.js"><link rel="prefetch" href="/assets/js/41.0b2c58e2.js"><link rel="prefetch" href="/assets/js/42.67a82772.js"><link rel="prefetch" href="/assets/js/43.29d6a505.js"><link rel="prefetch" href="/assets/js/44.92cd7b87.js"><link rel="prefetch" href="/assets/js/45.3c6a4353.js"><link rel="prefetch" href="/assets/js/46.36fed72d.js"><link rel="prefetch" href="/assets/js/47.b177e4a8.js"><link rel="prefetch" href="/assets/js/48.b27ca15b.js"><link rel="prefetch" href="/assets/js/49.2c744cfa.js"><link rel="prefetch" href="/assets/js/5.e50b74d0.js"><link rel="prefetch" href="/assets/js/50.76712116.js"><link rel="prefetch" href="/assets/js/51.9b216b3d.js"><link rel="prefetch" href="/assets/js/52.ea7d85ce.js"><link rel="prefetch" href="/assets/js/53.c7981366.js"><link rel="prefetch" href="/assets/js/54.17e4ccfd.js"><link rel="prefetch" href="/assets/js/55.a09cc04d.js"><link rel="prefetch" href="/assets/js/56.30243e70.js"><link rel="prefetch" href="/assets/js/57.34a276d7.js"><link rel="prefetch" href="/assets/js/58.6b43bd3f.js"><link rel="prefetch" href="/assets/js/59.dffb5dc6.js"><link rel="prefetch" href="/assets/js/6.c0634e75.js"><link rel="prefetch" href="/assets/js/60.73105a9d.js"><link rel="prefetch" href="/assets/js/61.728f4718.js"><link rel="prefetch" href="/assets/js/62.c80c889d.js"><link rel="prefetch" href="/assets/js/63.68465bfa.js"><link rel="prefetch" href="/assets/js/64.904215d7.js"><link rel="prefetch" href="/assets/js/65.fbea44a1.js"><link rel="prefetch" href="/assets/js/66.8f239e67.js"><link rel="prefetch" href="/assets/js/67.0f1136a1.js"><link rel="prefetch" href="/assets/js/7.b9d650af.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.aae61d50.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.d7d76935.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">wuweiwei's blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础" class="dropdown-title"><span class="title">基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="基础" class="mobile-dropdown-title"><span class="title">基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/js/jc-one.html" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/css/BFC.html" class="nav-link">
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/html/" class="nav-link">
+  HTML
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架" class="dropdown-title"><span class="title">框架</span> <span class="arrow down"></span></button> <button type="button" aria-label="框架" class="mobile-dropdown-title"><span class="title">框架</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vue/diff.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/react/react2.html" class="nav-link">
+  React
+</a></li><li class="dropdown-item"><!----> <a href="/angular/" class="nav-link">
+  Angular
+</a></li><li class="dropdown-item"><!----> <a href="/flutter/" class="nav-link">
+  Flutter
+</a></li></ul></div></div><div class="nav-item"><a href="/interview/sf-zero.html" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="/workNotes/" class="nav-link">
+  工作笔记
+</a></div><div class="nav-item"><a href="/web/" class="nav-link">
+  前端可视化
+</a></div><div class="nav-item"><a href="/about/" class="nav-link">
+  关于
+</a></div><div class="nav-item"><a href="https://github.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础" class="dropdown-title"><span class="title">基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="基础" class="mobile-dropdown-title"><span class="title">基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/js/jc-one.html" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/css/BFC.html" class="nav-link">
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/html/" class="nav-link">
+  HTML
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架" class="dropdown-title"><span class="title">框架</span> <span class="arrow down"></span></button> <button type="button" aria-label="框架" class="mobile-dropdown-title"><span class="title">框架</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vue/diff.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/react/react2.html" class="nav-link">
+  React
+</a></li><li class="dropdown-item"><!----> <a href="/angular/" class="nav-link">
+  Angular
+</a></li><li class="dropdown-item"><!----> <a href="/flutter/" class="nav-link">
+  Flutter
+</a></li></ul></div></div><div class="nav-item"><a href="/interview/sf-zero.html" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="/workNotes/" class="nav-link">
+  工作笔记
+</a></div><div class="nav-item"><a href="/web/" class="nav-link">
+  前端可视化
+</a></div><div class="nav-item"><a href="/about/" class="nav-link">
+  关于
+</a></div><div class="nav-item"><a href="https://github.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>算法</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/interview/sf-zero.html" class="sidebar-link">JS 数据结构与算法</a></li><li><a href="/interview/sf-one.html" class="sidebar-link">无重复字符的最长子串</a></li><li><a href="/interview/sf-two.html" class="sidebar-link">贪心算法</a></li><li><a href="/interview/sf-three.html" aria-current="page" class="active sidebar-link">二分查找</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/interview/sf-three.html#定义" class="sidebar-link">定义</a></li><li class="sidebar-sub-header"><a href="/interview/sf-three.html#流程图" class="sidebar-link">流程图</a></li></ul></li><li><a href="/interview/sf-four.html" class="sidebar-link">动态规划</a></li><li><a href="/interview/sf-five.html" class="sidebar-link">最长递增子序列</a></li><li><a href="/interview/sf-six.html" class="sidebar-link">滑动窗口</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>网络</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="二分查找"><a href="#二分查找" class="header-anchor">#</a> 二分查找</h1> <h2 id="定义"><a href="#定义" class="header-anchor">#</a> 定义</h2> <p>二分查找也称折半查找（Binary Search），它是一种效率较高的查找方法。但是，折半查找要求线性表必须采用顺序存储结构，而且表中元素按关键字有序排列。</p> <h2 id="流程图"><a href="#流程图" class="header-anchor">#</a> 流程图</h2> <p><img src="/sfImg/sf.png" alt="Alt 二分查找流程图"></p> <p><strong>为什么是 left &lt;= right ?</strong></p> <p>因为始终要保证查找的对象内至少含有一个元素，且确保能判断对于left和right指向同一个元素的情况。</p> <p><strong>为什么是left=middle +1 || right=middle -1 ？</strong></p> <p>因为在第一次判断的时候就已经排除了middle = find 的这个可能，为了提升效率。可以直接将middle值减去不再第二次判断的序列之中</p> <p><strong>leetcode地址：</strong><a href="https://leetcode.cn/problems/search-insert-position/description">35. 搜索插入位置
+</a></p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token operator">**</span>
+ <span class="token operator">*</span> @param <span class="token punctuation">{</span>number<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">}</span> nums
+ <span class="token operator">*</span> @param <span class="token punctuation">{</span>number<span class="token punctuation">}</span> target
+ <span class="token operator">*</span> @<span class="token keyword">return</span> <span class="token punctuation">{</span>number<span class="token punctuation">}</span>
+ <span class="token operator">*</span><span class="token operator">/</span>
+<span class="token keyword">var</span> <span class="token function-variable function">searchInsert</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">nums<span class="token punctuation">,</span> target</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> <span class="token function-variable function">findMid</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">left<span class="token punctuation">,</span> right</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> left <span class="token operator">+</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span><span class="token punctuation">(</span>right <span class="token operator">-</span> left<span class="token punctuation">)</span><span class="token operator">&gt;&gt;</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>target<span class="token operator">&gt;</span>nums<span class="token punctuation">[</span>nums<span class="token punctuation">.</span>length<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> nums<span class="token punctuation">.</span>length
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>target<span class="token operator">&lt;</span>nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token number">0</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">var</span> left <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> right <span class="token operator">=</span> nums<span class="token punctuation">.</span>length<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>mid <span class="token operator">=</span> <span class="token function">findMid</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token punctuation">)</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>left<span class="token operator">&lt;</span>right<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token operator">&gt;</span>target<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            right <span class="token operator">=</span> mid
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token operator">&lt;</span>target<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            left <span class="token operator">=</span> mid <span class="token operator">+</span> <span class="token number">1</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> mid
+        <span class="token punctuation">}</span>
+        mid <span class="token operator">=</span> <span class="token function">findMid</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> mid 
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br></div></div><div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">var</span> <span class="token function-variable function">searchInsert</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">nums<span class="token punctuation">,</span> target</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> l <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> r <span class="token operator">=</span> nums<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> ans <span class="token operator">=</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span>l <span class="token operator">&lt;=</span> r<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> mid <span class="token operator">=</span> l <span class="token operator">+</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span><span class="token punctuation">(</span>r <span class="token operator">-</span> l<span class="token punctuation">)</span> <span class="token operator">&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>target <span class="token operator">&gt;</span> nums<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      l <span class="token operator">=</span> mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      ans <span class="token operator">=</span> mid<span class="token punctuation">;</span>
+      r <span class="token operator">=</span> mid <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">9/18/2023, 2:22:32 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/interview/sf-two.html" class="prev">
+        贪心算法
+      </a></span> <span class="next"><a href="/interview/sf-four.html">
+        动态规划
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.c4dac388.js" defer></script><script src="/assets/js/2.09318f72.js" defer></script><script src="/assets/js/1.74a6607f.js" defer></script><script src="/assets/js/37.b5224c6d.js" defer></script>
+  </body>
+</html>
